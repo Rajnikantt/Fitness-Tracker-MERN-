@@ -12,11 +12,14 @@ const Navbar = ()=> {
   };
 
   return (
+    
     <div className="navbar">
       <div className="max-w-[1200px] mx-auto flex justify-between items-center">
-        <h1 className="text-[#667eea] text-[1.8rem] font-bold">
-          WORKOUT TRACKER
-        </h1>
+        <Link to="/">
+              <h1 className="text-[#667eea] text-[1.8rem] font-bold cursor-pointer">
+                   WORKOUT TRACKER
+              </h1>
+            </Link>
         <nav className="flex items-center gap-6">
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/exercises">Exercises</Link>

@@ -15,7 +15,12 @@ import Workouts from './pages/Workouts';
 import CreateWorkout from './pages/CreateWorkout';
 import AdminUsers from './pages/AdminUsers';
 
+
 // Protected Route Component
+
+
+
+
 const ProtectedRoute = ({ children, adminOnly = false })=> {
   const { isAuthenticated, isAdmin, loading } = useAuth();
 
@@ -55,6 +60,9 @@ const PublicRoute = ({ children })=> {
 
 function AppContent() {
   return (
+
+    
+  
     <Router>
       <div className="App">
         <Routes>
@@ -161,6 +169,7 @@ function AppContent() {
 
 function App() {
   return (
+    
     <AuthProvider>
       <AppContent />
     </AuthProvider>

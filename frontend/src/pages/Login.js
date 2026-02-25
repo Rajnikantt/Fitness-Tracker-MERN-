@@ -85,8 +85,8 @@ const Login = ()=> {
             Demo Accounts:
             </strong>
             <div className='flex justify-center'>
-              Admin: admin@iron.com / admin123<br/>
-              User: john@example.com / password123
+              Admin: admin@workouttracker.com / admin123<br/>
+              User: user@example.com / password123
             </div>    
         </div>
       </div>
