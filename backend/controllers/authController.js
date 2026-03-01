@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const User = require('../models/User');
 const { generateToken } = require('../middleware/auth');
 
-// @desc    Register new user
+// Register new user
 exports.register = async (req, res)=> {
   try {
     const errors = validationResult(req);
@@ -43,7 +43,7 @@ exports.register = async (req, res)=> {
   }
 };
 
-// @desc    Login user
+// Login user
 exports.login = async (req, res)=> {
   try {
     const errors = validationResult(req);
@@ -87,7 +87,7 @@ exports.login = async (req, res)=> {
   }
 };
 
-// @desc    Get current user
+// Get current user
 exports.getMe = async (req, res)=> {
   try {
     const user = await User.findById(req.user._id);

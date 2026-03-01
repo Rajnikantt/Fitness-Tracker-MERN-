@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const Workout = require('../models/Workout');
 
-// @desc    Get all workouts for current user
+// Get all workouts for current user
 exports.getWorkouts = async (req, res)=> {
   try {
     const { startDate, endDate, limit } = req.query;
@@ -28,7 +28,7 @@ exports.getWorkouts = async (req, res)=> {
   }
 };
 
-// @desc    Get single workout
+// Get single workout
 exports.getWorkout = async (req, res)=> {
   try {
     const workout = await Workout.findById(req.params.id)
@@ -52,7 +52,7 @@ exports.getWorkout = async (req, res)=> {
   }
 };
 
-// @desc    Create new workout
+//  Create new workout
 exports.createWorkout = async (req, res)=> {
   try {
     const errors = validationResult(req);
@@ -83,7 +83,7 @@ exports.createWorkout = async (req, res)=> {
   }
 };
 
-// @desc    Update workout
+// Update workout
 exports.updateWorkout = async (req, res)=> {
   try {
     const workout = await Workout.findById(req.params.id);
@@ -117,7 +117,7 @@ exports.updateWorkout = async (req, res)=> {
   }
 };
 
-// @desc    Delete workout
+//  Delete workout
 exports.deleteWorkout = async (req, res)=> {
   try {
     const workout = await Workout.findById(req.params.id);
@@ -140,7 +140,7 @@ exports.deleteWorkout = async (req, res)=> {
   }
 };
 
-// @desc    Get workout statistics
+// Get workout statistics
 exports.getWorkoutStats = async (req, res)=> {
   try {
     const workouts = await Workout.find({ user: req.user._id })

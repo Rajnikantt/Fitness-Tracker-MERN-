@@ -5,17 +5,17 @@ const exerciseController = require('../controllers/exerciseController');
 const { protect, admin } = require('../middleware/auth');
 
 // route  GET /api/exercises
-// desc  Get all active exercises
+// to Get all active exercises
 // access to Private
 router.get('/', protect, exerciseController.getExercises);
 
 // route GET /api/exercises/:id
-// desc  Get single exercise
+// to Get single exercise
 // access to Private
 router.get('/:id', protect, exerciseController.getExercise);
 
 // route   POST /api/exercises
-// desc    Create new exercise (Admin only)
+// to Create new exercise (Admin only)
 // access  Private/Admin
 router.post('/', [protect, admin, [
   body('name').trim().notEmpty().withMessage('Exercise name is required'),
@@ -24,12 +24,12 @@ router.post('/', [protect, admin, [
 ]], exerciseController.createExercise);
 
 // route   PUT /api/exercises/:id
-// desc    Update exercise (Admin only)
+// to  Update exercise (Admin only)
 // access  Private/Admin
 router.put('/:id', protect, admin, exerciseController.updateExercise);
 
 // route   DELETE /api/exercises/:id
-// desc    Deactivate exercise (Admin only)
+// to Deactivate exercise (Admin only)
 // access  Private/Admin
 router.delete('/:id', protect, admin, exerciseController.deleteExercise);
 

@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator');
 const Exercise = require('../models/Exercise');
 
-// @desc    Get all active exercises
+// Get all active exercises
 exports.getExercises = async (req, res)=> {
   try {
     const { category, equipment, search } = req.query;
@@ -30,7 +30,7 @@ exports.getExercises = async (req, res)=> {
   }
 };
 
-// @desc    Get single exercise
+// Get single exercise
 exports.getExercise = async (req, res)=> {
   try {
     const exercise = await Exercise.findById(req.params.id);
@@ -46,7 +46,7 @@ exports.getExercise = async (req, res)=> {
   }
 };
 
-// @desc    Create new exercise
+//Create new exercise
 exports.createExercise = async (req, res)=> {
   try {
     const errors = validationResult(req);
@@ -71,7 +71,7 @@ exports.createExercise = async (req, res)=> {
   }
 };
 
-// @desc    Update exercise
+// Update exercise
 exports.updateExercise = async (req, res)=> {
   try {
     const exercise = await Exercise.findById(req.params.id);
@@ -98,7 +98,7 @@ exports.updateExercise = async (req, res)=> {
   }
 };
 
-// @desc    Deactivate exercise
+// Deactivate exercise
 exports.deleteExercise = async (req, res)=> {
   try {
     const exercise = await Exercise.findById(req.params.id);

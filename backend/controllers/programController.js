@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const Program = require('../models/Program');
 const UserProgram = require('../models/UserProgram');
 
-// @desc    Get all programs (public + user's own)
+//Get all programs (public + user's own)
 exports.getPrograms = async (req, res)=> {
   try {
     const programs = await Program.find({
@@ -23,7 +23,7 @@ exports.getPrograms = async (req, res)=> {
   }
 };
 
-// @desc    Get all public programs
+// Get all public programs
 exports.getPublicPrograms = async (req, res)=> {
   try {
     const programs = await Program.find({ visibility: 'Public' })
@@ -39,7 +39,7 @@ exports.getPublicPrograms = async (req, res)=> {
   }
 };
 
-// @desc    Get current user's programs
+// Get current user's programs
 exports.getMyPrograms = async (req, res)=> {
   try {
     const programs = await Program.find({ createdBy: req.user._id })
@@ -54,7 +54,7 @@ exports.getMyPrograms = async (req, res)=> {
   }
 };
 
-// @desc    Get single program
+// Get single program
 exports.getProgram = async (req, res)=> {
   try {
     const program = await Program.findById(req.params.id)
@@ -78,7 +78,7 @@ exports.getProgram = async (req, res)=> {
   }
 };
 
-// @desc    Create new program
+// Create new program
 exports.createProgram = async (req, res)=> {
   try {
     const errors = validationResult(req);
@@ -108,7 +108,7 @@ exports.createProgram = async (req, res)=> {
   }
 };
 
-// @desc    Update program
+// Update program
 exports.updateProgram = async (req, res)=> {
   try {
     const program = await Program.findById(req.params.id);
@@ -143,7 +143,7 @@ exports.updateProgram = async (req, res)=> {
   }
 };
 
-// @desc    Delete program
+// Delete program
 exports.deleteProgram = async (req, res)=> {
   try {
     const program = await Program.findById(req.params.id);
@@ -168,7 +168,7 @@ exports.deleteProgram = async (req, res)=> {
   }
 };
 
-// @desc    Adopt a public program
+// Adopt a public program
 exports.adoptProgram = async (req, res)=> {
   try {
     const program = await Program.findById(req.params.id);
@@ -204,7 +204,7 @@ exports.adoptProgram = async (req, res)=> {
   }
 };
 
-// @desc    Get users who adopted this program
+// Get users who adopted this program
 exports.getAdoptedUsers = async (req, res)=> {
   try {
     const adoptions = await UserProgram.find({ program: req.params.id })

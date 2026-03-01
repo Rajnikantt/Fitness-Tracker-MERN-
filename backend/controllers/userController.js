@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-// @desc    Get all users
+// Get all users
 exports.getUsers = async (req, res)=> {
   try {
     const users = await User.find().select('-password').sort({ createdDate: -1 });
@@ -12,7 +12,7 @@ exports.getUsers = async (req, res)=> {
   }
 };
 
-// @desc    Get single user
+// Get single user
 exports.getUser = async (req, res)=> {
   try {
     const user = await User.findById(req.params.id).select('-password');
@@ -29,7 +29,7 @@ exports.getUser = async (req, res)=> {
   }
 };
 
-// @desc    Update user
+// Update user
 exports.updateUser = async (req, res)=> {
   try {
     const user = await User.findById(req.params.id);
@@ -55,7 +55,7 @@ exports.updateUser = async (req, res)=> {
   }
 };
 
-// @desc    Deactivate user
+// Deactivate user
 exports.deactivateUser = async (req, res)=> {
   try {
     const user = await User.findById(req.params.id);

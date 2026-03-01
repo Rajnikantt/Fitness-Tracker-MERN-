@@ -6,7 +6,7 @@ const { protect } = require('../middleware/auth');
 
 
 // route POST /api/auth/register
-// desc Register a new user
+// to Register a new user
 // access to Public
 router.post('/register', [
   body('name').trim().notEmpty().withMessage('Name is required'),
@@ -16,7 +16,7 @@ router.post('/register', [
 
 
 // route POST /api/auth/login
-// desc Login user
+// to Login user
 // accessto Public
 router.post('/login', [
   body('email').isEmail().withMessage('Please provide a valid email'),
@@ -25,7 +25,7 @@ router.post('/login', [
 
 
 // route GET /api/auth/me
-// desc Get current user
+// to Get current user
 // access only Private
 router.get('/me', protect, authController.getMe);
 
