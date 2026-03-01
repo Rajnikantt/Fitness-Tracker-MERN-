@@ -19,7 +19,7 @@ export const AuthProvider = ({ children })=> {
   useEffect( ()=> {
     const loadUser = async ()=> {
       try {
-        const response = await axios.get('https://workout-tracker-mern-1-j2x4.onrender.com');
+        const response = await axios.get('https://workout-tracker-mern-1-j2x4.onrender.com/api/auth/me');
         setUser(response.data);
         console.log(`✅ Logged in user data:`, response.data);
       }
